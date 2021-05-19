@@ -1,17 +1,17 @@
 
 
-# Why state matters
-## Resource tracking!
-• A way for Terraform to keep tabs on what has been deployed.
-• Critical to Terraforms functionality.
-• Stored in flat files, by default named “terraform.tfstate”.
-• Helps Terraform calculate deployment deltas and create new deployment plans.
-• Never lose your Terraform state file.
+# Terraform State
+Resource tracking!
+- A way for Terraform to keep tabs on what has been deployed.
+- Critical to Terraforms functionality.
+- Stored in flat files, by default named “terraform.tfstate”.
+- Helps Terraform calculate deployment deltas and create new deployment plans.
+- Never lose your Terraform state file.
 
 # Terraform Variables and Outputs
 
 ### variable
-```tf
+```hcl
 variable “my-var” {
 	description = “My test variable”
 	type = string
@@ -22,13 +22,13 @@ variable = Reserved Keyword
 my-var = User provided variable name
 {} = variable config arguments such as type of variable and default value.
 
-Referencing a variable: var.my-var
+Referencing a variable: `var.my-var`
 
-Best practice is combine all the variables into “terraform.tfvars”.
+Best practice is combine all the variables into `terraform.tfvars`.
 
 ### Validation
 
-```tf
+```hcl
 variable “my-var” {
 	description = “My test variable”
 	type = string
@@ -41,9 +41,9 @@ variable “my-var” {
 ```
 the validation above ensures the string variable is more than 4 characters.
 
-Hidden variables
-in order to hide sensitive values during the execution of the terraform logs.
-```tf
+__Hidden variables__
+In order to hide sensitive values during the execution of the terraform logs.
+```hcl
 variable “my-var” {
 	description = “My test variable”
 	type = string
@@ -53,16 +53,16 @@ variable “my-var” {
 ```
 
 ### Base types for terraform variables
-• string
-• number
-• bool
+- string
+- number
+- bool
 
 ### Complex types for terraform variables
-• list
-• set
-• map
-• object
-• tuple
+- list
+- set
+- map
+- object
+- tuple
 
 
 #### String example
@@ -102,7 +102,7 @@ variable “docker_ports” {
 
 # Terraform Outputs
 
-output variables values are shown on the shell after running terraform apply.
+Output variables values are shown on the shell after running terraform `apply`.
 ```hcl
 output “instance_ip” {
 	description = “VM’s private IP”
